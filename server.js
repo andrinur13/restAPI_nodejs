@@ -1,6 +1,14 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const app = express()
-const port = 3000
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
 
-// parse applications
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
+// panggil routes
+var routes = require('./routes/routes');
+routes(app);
+
+app.listen(3000, () => {
+    console.log(`Server berjaan di port 3000`)
+})
