@@ -2,7 +2,6 @@
 
 var response = require('../res/res');
 var connection = require('../config/koneksi');
-const conn = require('../config/koneksi');
 
 exports.index = function (req, res) {
     response.ok("Aplikasi rest api sudah berjalan", res);
