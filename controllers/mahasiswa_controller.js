@@ -20,8 +20,8 @@ exports.tampilSemuaMahasiswa = function (req, res) {
 
 // tampil data mahasiswa berdasarkan ID
 exports.tampilBerdasarkanID = function (req, res) {
-    let id = req.body.id;
-    connection.query('SELECT * FROM mahasiswa WHERE id = ?', [id], function (error, rows, fields) {
+    let id_mahasiswa = req.body.id_mahasiswa;
+    connection.query('SELECT * FROM mahasiswa WHERE id_mahasiswa = ?', [id_mahasiswa], function (error, rows, fields) {
         if (error) {
             console.log(error);
         } else {
@@ -47,29 +47,29 @@ exports.tambahDataMahasiswa = function (req, res) {
 
 // ubah data mahasiswa
 exports.ubahDataMahasiswa = function (req, res) {
-    let id = req.body.id;
+    let id_mahasiswa = req.body.id_mahasiswa;
     let nim = req.body.nim;
     let nama = req.body.nama;
     let prodi = req.body.prodi;
 
-    connection.query('UPDATE mahasiswa SET nim=?, nama=?, prodi=? WHERE id=?', [nim, nama, prodi, id], function (error, rows, fields) {
+    connection.query('UPDATE mahasiswa SET nim=?, nama=?, prodi=? WHERE id_mahasiswa=?', [nim, nama, prodi, id_mahasiswa], function (error, rows, fields) {
         if (error) {
             console.log(error);
         } else {
-            response.ok("Berhasil mengubah data mahasiswa dengan id " + id, res);
+            response.ok("Berhasil mengubah data mahasiswa dengan id " + id_mahasiswa, res);
         }
     });
 }
 
 // menghapus data mahasiswa
 exports.hapusDataMahasiswa = function (req, res) {
-    let id = req.body.id;
+    let id_mahasiswa = req.body.id_mahasiswa;
 
     connection.query('DELETE FROM mahasiswa WHERE id=?', [id], function (error, rows, fields) {
         if (error) {
             console.log(error);
         } else {
-            response.ok("Berhasil menghapus data mahasiswa dengan id " + id, res);
+            response.ok("Berhasil menghapus data mahasiswa dengan id " + id_mahasiswa, res);
         }
     })
 }

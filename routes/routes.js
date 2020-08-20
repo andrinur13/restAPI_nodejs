@@ -15,4 +15,8 @@ module.exports = function(app) {
 
     // tabel mata kuliah
     app.route('/matkul/tampil').get(jsonMatkul.tampilMataKuliah);
+    app.route('/matkul/tampilid').get(jsonMatkul.tampilMataKuliahID);
+    app.route('/matkul/tambah').post(jsonMatkul.tambahMataKuliah);
+    app.route('/matkul/hapus').delete(jsonMatkul.hapusMatakuliah);
+    app.route('/matkul/edit').put(jsonMatkul.editMatakuliah);
 }
